@@ -1,0 +1,49 @@
+/* Paper collage (main) + vector-rebuilt Codex UI (auxiliary). Cream paper ground with fibre noise,
+   kraft card stock, masking tape, red rubber-stamp ink, one teal accent for Codex. */
+:root{--bg:#efe7d6;--ink:#26221d;--sub:#5b5146;--muted:#958878;--kraft:#c8a476;--kraftD:#a9875a;--card:#fffdf7;--stamp:#c23b2c;--teal:#16707a;--tealL:#d6ecec;--sticky:#f6d35b;--pen:#2a4f9e;--green:#2b7d4f}
+*{box-sizing:border-box}
+body{margin:0;background:#e2d8c5;color:var(--ink);font-family:"Lesson Latin","Lesson TC","Segoe UI","Microsoft JhengHei",sans-serif}
+button,select,input{font:inherit}
+button,select{background:var(--ink);color:#fff;border:0;border-radius:9px;padding:9px 14px;cursor:pointer}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+#shell{margin:auto;max-width:1400px;padding:20px}
+.page-head h1{font-size:24px;margin:4px 0}
+.note{font-size:14px;color:var(--sub);margin:4px 0 12px}
+#viewport{position:relative;overflow:hidden;border-radius:16px;box-shadow:0 18px 60px #26221d30}
+#stage{position:absolute;left:0;top:0;transform-origin:top left;overflow:hidden;font-family:"Lesson Latin","Lesson TC",sans-serif;
+ background:var(--bg) url("stage-bg.png") 0 0/1920px 1080px no-repeat}
+/* stage-bg.png is baked by tools/bake_bg.py: radial gradient + fibre texture + red margin rule (one image = fast frames) */
+#eyebrow{position:absolute;left:96px;top:46px;height:44px;font-weight:800;font-size:22px;letter-spacing:2px;line-height:28px;color:var(--stamp);border:3px solid var(--stamp);border-radius:6px;padding:5px 14px;white-space:nowrap;transform:rotate(-1.5deg);background:#fffdf766}
+#heading{position:absolute;left:96px;top:102px;width:1728px;height:76px;margin:0;font-size:54px;line-height:76px;font-weight:800;white-space:nowrap}
+#heading .en{font-size:30px;font-weight:600;color:var(--muted);margin-left:22px;letter-spacing:.5px;line-height:1;vertical-align:baseline}
+#subheading{position:absolute;left:96px;top:182px;width:1728px;height:40px;margin:0;font-size:28px;line-height:40px;color:var(--sub);white-space:nowrap}
+#visual{position:absolute;left:96px;top:236px;width:1728px;height:610px}
+#art{display:block;width:100%;height:100%;overflow:visible;font-family:"Lesson Latin","Lesson TC",sans-serif}
+#caption{position:absolute;left:150px;top:868px;width:1620px;height:168px;z-index:3;border-radius:14px;background:#26221dec;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px 28px;text-align:center;gap:6px}
+#caption1{font-size:40px;line-height:1.3;font-weight:600;white-space:nowrap}
+#caption .secondary{font-size:32px;line-height:1.3;color:#f4dc95;white-space:nowrap}
+#credit{position:absolute;left:360px;top:300px;width:1200px;height:420px;display:none;align-items:center;justify-content:center;flex-direction:column;gap:34px;background:var(--card);border-radius:6px;box-shadow:14px 14px 0 var(--kraft),0 24px 70px #26221d26;transform-origin:center}
+#credit small{font-size:28px;letter-spacing:2px;color:var(--stamp)}
+#credit strong{font-size:104px;letter-spacing:16px}
+#progress-mark{position:absolute;height:6px;background:var(--stamp);left:0;bottom:0}
+#controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px 0}
+#seek{flex:1;min-width:160px}
+#time{font-variant-numeric:tabular-nums;color:var(--sub);min-width:110px}
+.interaction{padding:20px;border:1px solid #d3c7b1;border-radius:14px;background:#fffdf7;margin-top:6px}
+.interaction h2{font-size:20px;margin:0 0 8px}
+.lab-desc{font-family:Consolas,"Lesson TC",monospace;background:#f4efe3;border-left:4px solid var(--kraft);padding:10px 14px;border-radius:6px;font-size:15px;white-space:pre-wrap;margin:8px 0 14px}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.lab-card{border:1px solid #e1d7c5;border-radius:12px;padding:16px;background:#fbf7ee}
+.lab-card p{margin:6px 0}
+.choices{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.choices button{background:#fff;color:var(--ink);border:1px solid #c6b9a3}
+.choices button[aria-pressed=true]{background:var(--tealL);border-color:var(--teal)}
+.feedback{margin:8px 0 0;font-weight:600;min-height:1.4em}
+.feedback.ok{color:var(--green)}.feedback.bad{color:var(--stamp)}
+.fine{font-size:13px;color:var(--muted)}
+body.export{background:var(--bg)}
+body.export #shell{padding:0;max-width:none}
+body.export #viewport{border-radius:0;box-shadow:none}
+body.export #controls,body.export .interaction,body.export .page-head{display:none}
+@media (max-width:640px){#shell{padding:12px 16px}.page-head h1{font-size:20px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}

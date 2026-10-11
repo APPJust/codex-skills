@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Codex Skills</title>
+<link rel="stylesheet" href="player.css">
+<div id="shell">
+<header class="page-head"><h1 id="pageTitle">Codex Skills</h1><p class="note">可切換「中文配音＋中英字幕」「中文配音＋中越字幕」「English narration＋英中字幕」。資料查核日：<span id="checked"></span></p></header>
+<div id="viewport"><main id="stage" aria-label="教學動畫畫面">
+<div id="eyebrow" data-qa data-container="#stage"></div>
+<h2 id="heading" data-qa data-container="#stage"></h2>
+<p id="subheading" data-qa data-container="#stage"></p>
+<div id="visual" data-qa data-container="#stage"><svg id="art" viewBox="0 0 1728 610" aria-hidden="true"></svg></div>
+<div id="credit" data-qa data-container="#stage"><small>感謝觀看 · Thank you for watching</small><strong>李振偉老師</strong></div>
+<div id="caption" data-qa data-container="#stage"><div id="caption1"></div><div id="caption2" class="secondary"></div></div>
+<div id="progress-mark"></div>
+</main></div>
+<nav id="controls" aria-label="播放控制">
+<button id="play">播放</button><button id="replay">重播</button>
+<input id="seek" type="range" min="0" step="1" value="0" aria-label="播放進度">
+<span id="time"></span>
+<select id="locale" aria-label="配音與字幕版本"></select>
+<select id="chapters" aria-label="章節"></select>
+<button id="captions" aria-pressed="true">字幕開啟</button>
+</nav>
+<section class="interaction" id="lab" aria-label="教學互動"></section>
+</div>
+<script src="scenes.js"></script>
+<script src="player.js"></script>
+<script src="lab.js"></script>
+</html>
